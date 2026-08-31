@@ -5,30 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>개인정보처리방침 — 무드</title>
   <meta name="description" content="감정 기록 앱 '무드'의 개인정보처리방침. 모든 기록은 기기 안에만 저장됩니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
   <style>
     :root {
-      --bg: #faf4f7;
-      --ink: #3c3540;
-      --sub: #8a7f8e;
+      --paper: #faf3f6;
+      --paper: oklch(0.975 0.008 340);
+      --ink: #443c47;
+      --ink: oklch(0.30 0.02 330);
+      --body-c: #57505b;
+      --body-c: oklch(0.38 0.025 330);
+      --sub: #837b87;
+      --sub: oklch(0.55 0.03 330);
+      --heading: #7a5a8a;
+      --heading: oklch(0.44 0.08 318);
       --accent: #8b5f9e;
-      --line: #e5d9e3;
+      --accent: oklch(0.50 0.10 318);
+      --accent-deep: #6f4b80;
+      --accent-deep: oklch(0.40 0.10 318);
+      --line: #e5dae2;
+      --line: oklch(0.90 0.015 335);
+      --tide: linear-gradient(90deg,
+        oklch(0.32 0.075 232),
+        oklch(0.45 0.12 268) 25%,
+        oklch(0.60 0.10 318) 50%,
+        oklch(0.75 0.13 12) 75%,
+        oklch(0.88 0.115 64));
+      --serif: 'Gowun Batang', 'Apple SD Gothic Neo', serif;
+      --sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      line-height: 1.75;
+      background: var(--paper); color: var(--ink); font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
     }
-    main { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
-    a.home { color: var(--sub); text-decoration: none; font-size: 0.85rem; }
-    h1 { font-size: 1.45rem; margin: 16px 0 4px; letter-spacing: -0.02em; }
-    p.updated { color: var(--sub); font-size: 0.85rem; margin-bottom: 40px; }
-    h2 { font-size: 1.02rem; color: var(--accent); margin: 36px 0 10px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-deep); }
+    main { max-width: 640px; margin: 0 auto; padding: 56px 24px 88px; }
+    a.home { font-size: 13px; color: var(--sub); }
+    a.home:hover { color: var(--accent); }
+    h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); margin: 20px 0 8px; }
+    p.updated { font-size: 13.5px; color: var(--sub); }
+    .tide { height: 5px; border-radius: 3px; margin: 24px 0 16px; background: var(--tide); }
+    h2 { font-family: var(--serif); font-weight: 700; font-size: 19px; color: var(--heading); margin: 36px 0 10px; }
+    p { font-size: 15.5px; line-height: 1.9; color: var(--body-c); }
     p + p { margin-top: 12px; }
-    footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
-             color: var(--sub); font-size: 0.85rem; }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--sub); }
   </style>
 </head>
 <body>
@@ -36,6 +59,7 @@
     <a class="home" href="/">← Studio Kim</a>
     <h1>개인정보처리방침</h1>
     <p class="updated">앱: 무드(감정 기록) · 최종 갱신: 2026-08-31</p>
+    <div class="tide" aria-hidden="true"></div>
 
     <h2>요약</h2>
     <p>이 앱의 기록(기분·메모·아이콘)은 전부 이용자의 기기 안에만 저장됩니다.
@@ -76,9 +100,7 @@
     <p>이 방침에 대한 질문은 아래 이메일로 보내주세요. 방침이 바뀌면 이
        페이지에서 알립니다.</p>
 
-    <footer>
-      <p>Studio Kim (스튜디오킴) · contact@studiokim.co.kr</p>
-    </footer>
+    <footer>Studio Kim (스튜디오킴) · [문의 이메일]</footer>
   </main>
 </body>
 </html>

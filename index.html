@@ -4,90 +4,186 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studio Kim</title>
-  <meta name="description" content="Studio Kim — 하루의 기분을 색으로 남기는 감정 기록 앱을 만드는 1인 개발 스튜디오입니다.">
+  <meta name="description" content="Studio Kim — 하루의 기분을 색으로 남기는 감정 기록 앱 '무드'를 만드는 1인 개발 스튜디오입니다.">
   <!-- Search Console 인증 메타 태그 자리: 발급받으면 아래 줄을 교체 -->
   <!-- <meta name="google-site-verification" content="TOKEN"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
   <style>
     :root {
-      --bg: #faf4f7;
-      --ink: #3c3540;
-      --sub: #8a7f8e;
+      /* 앱의 물때 팔레트(oklch) 그대로 — 사이트와 앱이 한 벌 */
+      --paper: #faf3f6;
+      --paper: oklch(0.975 0.008 340);
+      --card: #f3eaf0;
+      --card: oklch(0.955 0.012 335);
+      --ink: #443c47;
+      --ink: oklch(0.30 0.02 330);
+      --body: #57505b;
+      --body: oklch(0.38 0.025 330);
+      --sub: #837b87;
+      --sub: oklch(0.55 0.03 330);
+      --faint: #8f8793;
+      --faint: oklch(0.62 0.025 330);
       --accent: #8b5f9e;
-      --card: #f3eaf1;
-      --line: #e5d9e3;
+      --accent: oklch(0.50 0.10 318);
+      --accent-deep: #6f4b80;
+      --accent-deep: oklch(0.40 0.10 318);
+      --line: #e5dae2;
+      --line: oklch(0.90 0.015 335);
+      --chip-line: #d8cbd5;
+      --chip-line: oklch(0.85 0.03 330);
+      --tide: linear-gradient(90deg,
+        oklch(0.32 0.075 232),
+        oklch(0.45 0.12 268) 25%,
+        oklch(0.60 0.10 318) 50%,
+        oklch(0.75 0.13 12) 75%,
+        oklch(0.88 0.115 64));
+      --serif: 'Gowun Batang', 'Apple SD Gothic Neo', serif;
+      --sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--bg);
+      background: var(--paper);
       color: var(--ink);
-      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      line-height: 1.7;
+      font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
     }
-    main { max-width: 640px; margin: 0 auto; padding: 72px 24px 80px; }
-    header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
-    header p.tagline { color: var(--sub); margin-top: 8px; }
-    .divider { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
-    section h2 { font-size: 1.05rem; color: var(--accent); margin-bottom: 16px; }
-    .app-card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 28px;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-deep); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 40px;
     }
-    .app-card .dot {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #b78ac4, #8b5f9e);
-      margin-bottom: 16px;
+    .brand { font-family: var(--serif); font-weight: 700; font-size: 20px; letter-spacing: 0.02em; color: var(--ink); }
+    nav a.policy { font-size: 14px; color: var(--sub); }
+    nav a.policy:hover { color: var(--accent); }
+
+    .hero { display: flex; flex-direction: column; align-items: center; padding-top: 96px; }
+    .blob {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 32%, oklch(0.68 0.10 318), oklch(0.52 0.11 296));
+      box-shadow: 0 24px 80px oklch(0.60 0.10 318 / 0.35);
     }
-    .app-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .app-card p { color: var(--ink); }
-    .app-card .status {
-      display: inline-block; margin-top: 16px;
-      font-size: 0.82rem; color: var(--sub);
-      border: 1px solid var(--line); border-radius: 999px;
-      padding: 3px 12px;
+    .hero h1 {
+      font-family: var(--serif); font-weight: 700;
+      font-size: clamp(30px, 5vw, 52px); line-height: 1.4;
+      text-align: center; margin-top: 64px; letter-spacing: -0.01em;
+      text-wrap: balance;
     }
-    .app-card a.privacy {
-      display: inline-block; margin-top: 16px; margin-left: 8px;
-      font-size: 0.82rem; color: var(--accent); text-decoration: none;
-      border: 1px solid var(--line); border-radius: 999px;
-      padding: 3px 12px;
+    .hero p { font-size: 17px; color: var(--sub); margin-top: 24px; line-height: 1.8; text-align: center; }
+
+    .tide-band { padding-top: 88px; }
+    .tide-band .band { height: 88px; border-radius: 18px; background: var(--tide); }
+    .tide-band p { font-size: 13px; color: var(--faint); margin: 14px 4px 0; letter-spacing: 0.04em; }
+
+    .app { padding-top: 128px; display: flex; flex-direction: column; gap: 40px; }
+    .app-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+    .app-head h2 { font-family: var(--serif); font-weight: 700; font-size: 34px; }
+    .app-head .kind { font-size: 15px; color: var(--sub); }
+    .app-head .status {
+      font-size: 12px; color: var(--accent);
+      border: 1px solid var(--chip-line); border-radius: 999px;
+      padding: 4px 14px; margin-left: auto;
     }
-    .app-card a.privacy:hover { border-color: var(--accent); }
-    footer { color: var(--sub); font-size: 0.85rem; }
-    footer p + p { margin-top: 4px; }
+    .app > p { font-size: 18px; line-height: 1.9; max-width: 640px; color: var(--body); }
+    .app > p strong { color: var(--accent); font-weight: 600; }
+
+    .features {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px; margin-top: 16px;
+    }
+    .feature {
+      background: var(--card); border-radius: 20px; padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .feature svg { stroke: var(--accent); }
+    .feature h3 { font-weight: 600; font-size: 16px; }
+    .feature p { font-size: 14.5px; line-height: 1.75; color: var(--sub); }
+
+    footer {
+      margin-top: 152px; padding: 40px 0 56px;
+      border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    footer .who { font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+    footer a { font-size: 13.5px; }
+
+    @media (max-width: 720px) {
+      .wrap { padding: 0 24px; }
+      nav { padding-top: 24px; }
+      .brand { font-size: 17px; }
+      nav a.policy { font-size: 12.5px; }
+      .hero { padding-top: 64px; }
+      .blob { width: 120px; height: 120px; box-shadow: 0 16px 56px oklch(0.60 0.10 318 / 0.35); }
+      .hero h1 { margin-top: 44px; }
+      .hero p { font-size: 14.5px; margin-top: 16px; }
+      .tide-band { padding-top: 56px; }
+      .tide-band .band { height: 56px; border-radius: 14px; }
+      .tide-band p { font-size: 11.5px; margin-top: 10px; }
+      .app { padding-top: 72px; gap: 24px; }
+      .app-head h2 { font-size: 26px; }
+      .app-head .status { font-size: 11px; padding: 3px 10px; }
+      .app > p { font-size: 15px; line-height: 1.85; }
+      .features { grid-template-columns: 1fr; gap: 14px; }
+      .feature { border-radius: 16px; padding: 22px; }
+      footer { margin-top: 72px; padding: 28px 0 40px; flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Studio Kim</h1>
-      <p class="tagline">조용히 오래 쓰는 도구를 만듭니다.</p>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Studio Kim</div>
+      <a class="policy" href="/mood/privacy.html">개인정보처리방침</a>
+    </nav>
+
+    <header class="hero">
+      <div class="blob" aria-hidden="true"></div>
+      <h1>조용히 오래 쓰는<br>도구를 만듭니다</h1>
+      <p>Studio Kim은 하나를 깊게 만드는 1인 개발 스튜디오입니다.</p>
     </header>
 
-    <hr class="divider">
+    <section class="tide-band" aria-label="무드 앱의 일주일 색 띠">
+      <div class="band" aria-hidden="true"></div>
+      <p>가라앉은 날부터 차오른 날까지 — 무드의 일주일</p>
+    </section>
 
-    <section>
-      <h2>만들고 있는 것</h2>
-      <div class="app-card">
-        <div class="dot"></div>
-        <h3>무드 — 감정 기록</h3>
-        <p>
-          하루의 기분을 숫자도 라벨도 아닌 <strong>색</strong>으로 남기는 안드로이드 앱.
-          기록은 전부 기기 안에만 저장되고, 일주일·한 달·일 년이 한 장의
-          그림이 됩니다.
-        </p>
+    <section class="app">
+      <div class="app-head">
+        <h2>무드</h2>
+        <span class="kind">감정 기록</span>
         <span class="status">출시 준비 중</span>
-        <a class="privacy" href="/mood/privacy.html">개인정보처리방침</a>
+      </div>
+      <p>하루의 기분을 숫자도 라벨도 아닌 <strong>색</strong>으로 남깁니다.
+         점수를 매기지 않고, 통계를 내밀지 않고, 일주일·한 달·일 년을
+         한 장의 그림으로 돌려드립니다.</p>
+
+      <div class="features">
+        <div class="feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7.4 6 10.4a6 6 0 0 1-12 0C6 10.4 8.5 7.2 12 3z"/></svg>
+          <h3>3초면 충분한 기록</h3>
+          <p>슬라이더로 오늘의 색을 고르면 끝. 쓰고 싶은 날에만 메모를 곁들입니다.</p>
+        </div>
+        <div class="feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <h3>기록은 기기 안에만</h3>
+          <p>서버가 없습니다. 메모는 암호화되고, 백업 파일도 내 암호구절로만 열립니다.</p>
+        </div>
+        <div class="feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 12h18M9 5v14"/></svg>
+          <h3>시간이 그림이 됩니다</h3>
+          <p>주·월·연 캔버스와 홈 위젯, 공유 카드까지 — 본 그림 그대로.</p>
+        </div>
       </div>
     </section>
 
-    <hr class="divider">
-
     <footer>
-      <p>Studio Kim (스튜디오킴)</p>
-      <p>문의: contact@studiokim.co.kr</p>
+      <div class="who">Studio Kim (스튜디오킴)<br>문의: [문의 이메일]</div>
+      <a href="/mood/privacy.html">개인정보처리방침</a>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
