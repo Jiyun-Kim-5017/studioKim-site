@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Kim</title>
+  <meta name="description" content="Studio Kim — 하루의 기분을 색으로 남기는 감정 기록 앱을 만드는 1인 개발 스튜디오입니다.">
+  <!-- Search Console 인증 메타 태그 자리: 발급받으면 아래 줄을 교체 -->
+  <!-- <meta name="google-site-verification" content="TOKEN"> -->
+  <style>
+    :root {
+      --bg: #faf4f7;
+      --ink: #3c3540;
+      --sub: #8a7f8e;
+      --accent: #8b5f9e;
+      --card: #f3eaf1;
+      --line: #e5d9e3;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 640px; margin: 0 auto; padding: 72px 24px 80px; }
+    header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
+    header p.tagline { color: var(--sub); margin-top: 8px; }
+    .divider { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+    section h2 { font-size: 1.05rem; color: var(--accent); margin-bottom: 16px; }
+    .app-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .app-card .dot {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #b78ac4, #8b5f9e);
+      margin-bottom: 16px;
+    }
+    .app-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .app-card p { color: var(--ink); }
+    .app-card .status {
+      display: inline-block; margin-top: 16px;
+      font-size: 0.82rem; color: var(--sub);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 3px 12px;
+    }
+    .app-card a.privacy {
+      display: inline-block; margin-top: 16px; margin-left: 8px;
+      font-size: 0.82rem; color: var(--accent); text-decoration: none;
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 3px 12px;
+    }
+    .app-card a.privacy:hover { border-color: var(--accent); }
+    footer { color: var(--sub); font-size: 0.85rem; }
+    footer p + p { margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Studio Kim</h1>
+      <p class="tagline">조용히 오래 쓰는 도구를 만듭니다.</p>
+    </header>
+
+    <hr class="divider">
+
+    <section>
+      <h2>만들고 있는 것</h2>
+      <div class="app-card">
+        <div class="dot"></div>
+        <h3>무드 — 감정 기록</h3>
+        <p>
+          하루의 기분을 숫자도 라벨도 아닌 <strong>색</strong>으로 남기는 안드로이드 앱.
+          기록은 전부 기기 안에만 저장되고, 일주일·한 달·일 년이 한 장의
+          그림이 됩니다.
+        </p>
+        <span class="status">출시 준비 중</span>
+        <a class="privacy" href="/mood/privacy.html">개인정보처리방침</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <footer>
+      <p>Studio Kim (스튜디오킴)</p>
+      <p>문의: contact@studiokim.co.kr</p>
+    </footer>
+  </main>
+</body>
+</html>
