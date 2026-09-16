@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Mood Tide</title>
+  <meta name="description" content="Privacy policy for Mood Tide, a mood-as-color journal. Everything stays on your device; the app has no internet permission.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --paper: #faf3f6;
+      --paper: oklch(0.975 0.008 340);
+      --ink: #443c47;
+      --ink: oklch(0.30 0.02 330);
+      --body-c: #57505b;
+      --body-c: oklch(0.38 0.025 330);
+      --sub: #837b87;
+      --sub: oklch(0.55 0.03 330);
+      --heading: #7a5a8a;
+      --heading: oklch(0.44 0.08 318);
+      --accent: #8b5f9e;
+      --accent: oklch(0.50 0.10 318);
+      --accent-deep: #6f4b80;
+      --accent-deep: oklch(0.40 0.10 318);
+      --line: #e5dae2;
+      --line: oklch(0.90 0.015 335);
+      --tide: linear-gradient(90deg,
+        oklch(0.32 0.075 232),
+        oklch(0.45 0.12 268) 25%,
+        oklch(0.60 0.10 318) 50%,
+        oklch(0.75 0.13 12) 75%,
+        oklch(0.88 0.115 64));
+      --serif: 'Gowun Batang', 'Apple SD Gothic Neo', serif;
+      --sans: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--paper); color: var(--ink); font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-deep); }
+    main { max-width: 640px; margin: 0 auto; padding: 56px 24px 88px; }
+    nav { display: flex; justify-content: space-between; font-size: 13px; color: var(--sub); }
+    nav a { color: var(--sub); }
+    nav a:hover { color: var(--accent); }
+    h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); margin: 20px 0 8px; }
+    p.updated { font-size: 13.5px; color: var(--sub); }
+    .tide { height: 5px; border-radius: 3px; margin: 24px 0 16px; background: var(--tide); }
+    h2 { font-family: var(--serif); font-weight: 700; font-size: 19px; color: var(--heading); margin: 36px 0 10px; }
+    p { font-size: 15.5px; line-height: 1.9; color: var(--body-c); white-space: pre-line; }
+    p + p { margin-top: 12px; }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--sub); }
+  </style>
+</head>
+<body>
+  <!-- 생성 파일: mood_app/tool/gen_privacy_html.py 가 lib/l10n/app_en.arb 에서 만든다. 직접 고치지 말 것. -->
+  <main>
+    <nav><a href="/">← Studio Kim</a><a href="/mood/privacy.html" hreflang="ko">한국어</a></nav>
+    <h1>Privacy Policy</h1>
+    <p class="updated">App: Mood Tide (오늘의 기분) · Last updated: 2026-09-16</p>
+    <div class="tide" aria-hidden="true"></div>
+
+    <h2>Overview</h2>
+    <p>This app does not collect personal information. Your entries (mood color, notes, icons, dates) are stored only on this device. The developer runs no server and cannot see your entries. The app does not even have permission to access the internet.</p>
+    <h2>Information stored on this device</h2>
+    <p>Entries: a mood color value per date, the chosen icon, and an optional note. Settings: whether the reminder is on and its time, picture display options, whether onboarding was completed, and the time of the last backup.</p>
+    <p>This information is kept in a database inside the app and never leaves the device. Notes are encrypted with a key held in the device's secure storage (Android Keystore).</p>
+    <h2>Permissions the app uses</h2>
+    <p>Notifications (POST_NOTIFICATIONS): used only for the once-a-day reminder you turn on. The reminder text is a single fixed line and never includes your entries.</p>
+    <p>Boot completed (RECEIVE_BOOT_COMPLETED): used only to restore the reminder schedule after the device restarts.</p>
+    <p>Write storage (WRITE_EXTERNAL_STORAGE, Android 9 and below only): used only when you save a share card to your photo album.</p>
+    <p>No other permissions (internet, location, contacts, camera, microphone, etc.) are requested.</p>
+    <h2>Backup files</h2>
+    <p>A backup file exists only when you create one in Settings. It is encrypted with a passphrase you choose (Argon2id key derivation + AES-256-GCM), and where it is saved, kept, or deleted is entirely up to you. If the passphrase is lost, the developer cannot open it either.</p>
+    <p>The app is excluded from Android's automatic backup and device-to-device transfer, so the only ways entries leave the device are this backup file and the share card below.</p>
+    <h2>Share cards</h2>
+    <p>Saving or sharing a picture from the canvas happens only when you run it yourself, and what leaves is a single color picture with a period caption. Mood values and notes are never part of the image. Saving goes to the device's photo album (Pictures/Mood); sharing goes to the app you choose.</p>
+    <h2>AI summaries (not available in this version)</h2>
+    <p>If a future version turns on AI summaries, the entries for the chosen period are sent — only at the moment you run a summary — through a relay server (Cloudflare, Inc., United States) to an AI provider (Anthropic, PBC, United States); this is a data processing arrangement involving transfer outside your country. What is sent is used only to produce the summary and is discarded immediately; the relay server does not store entries.</p>
+    <p>You can choose before running whether to leave notes out, and an anonymous installation number, not linked to any name or account, is sent along to manage usage limits. This section takes effect only in the version where the feature is turned on, after separate consent; until then nothing is sent and no installation number is created.</p>
+    <h2>What we don't collect</h2>
+    <p>No account, name, email, or contact details are asked for. Location, contacts, and your photo library are not read. No advertising identifier and no analytics tools are used.</p>
+    <p>There is no crash reporting in this version — if it is ever added, consent will be asked first, and mood or note values will never be included.</p>
+    <h2>Retention and deletion</h2>
+    <p>Entries stay on the device until you delete them. "Delete all entries" in Settings erases every entry and setting immediately; uninstalling the app does the same. Since there is no server copy, deleting is final — only backup files you made yourself remain.</p>
+    <h2>Your rights</h2>
+    <p>Viewing, editing, and deleting entries is done by you, inside the app. Today's entry can be changed until midnight; past days are not edited by design, but can be removed with Delete all entries.</p>
+    <p>Because the developer holds no personal information, there is nothing to request access to, correct, or delete from the developer. Questions are welcome at the contact below.</p>
+    <h2>Security measures</h2>
+    <p>Notes are stored encrypted with a key kept in Android Keystore. Backup files are encrypted with your passphrase. The app has no internet permission, is excluded from Android auto-backup, and never writes mood or note values to any log.</p>
+    <h2>Data protection officer and contact</h2>
+    <p>Business: Studio Kim (sole proprietorship, Republic of Korea)
+Officer: Jiyun Kim, owner
+Email: jybiz5017@gmail.com
+Web: <a href="https://studiokim.co.kr">https://studiokim.co.kr</a></p>
+    <p>Questions or comments about this policy are welcome by email and will be answered without undue delay.</p>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the change and its effective date will be announced on this screen and at <a href="https://studiokim.co.kr/mood/privacy-en.html.">https://studiokim.co.kr/mood/privacy-en.html.</a> Any feature that sends entries off the device will be announced in advance and will ask for consent.</p>
+    <p>Effective: 2026-09-16 (v1.0)</p>
+
+    <footer>Studio Kim · jybiz5017@gmail.com</footer>
+  </main>
+</body>
+</html>
